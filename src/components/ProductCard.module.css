@@ -17,12 +17,19 @@
 @media (prefers-reduced-motion:reduce) { .productImage{transition:none} }
 
 @media (max-width:680px) {
-  .content { padding: 18px 16px 16px; }
-  .description { min-height: auto; }
-  .addButton { min-height: 44px; padding: 0 16px; }
+  .imageArea { aspect-ratio: 1 / 1; }
+  .category { top: 9px; left: 9px; padding: 4px 6px; font-size: .56rem; }
+  .content { padding: 13px 11px 11px; }
+  .content h3 { font-size: .9rem; line-height: 1.25; }
+  .description { display: none; }
+  .purchaseRow { align-items: stretch; flex-direction: column; gap: 10px; margin-top: 14px; }
+  .price { font-size: 1rem; }
+  .addButton { width: 100%; min-height: 44px; padding: 0 8px; font-size: .72rem; }
 }
 
 @media (max-width:350px) {
-  .purchaseRow { align-items: stretch; flex-direction: column; }
-  .addButton { width: 100%; }
+  .content { padding: 11px 9px 9px; }
+  .content h3 { font-size: .82rem; }
+  .price { font-size: .94rem; }
+  .addButton { font-size: .66rem; }
 }

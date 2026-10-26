@@ -60,6 +60,7 @@
   }
   .navigation {
     grid-column: 1 / -1;
+    grid-row: 2;
     gap: 24px;
     overflow-x: auto;
     padding: 7px 0 2px;
@@ -68,29 +69,51 @@
   }
   .navigation::-webkit-scrollbar { display: none; }
   .navigation a { flex: 0 0 auto; }
-  .cartButton { min-height: 42px; }
-  .hero { grid-template-columns: 1fr; margin-top: 14px; }
-  .heroCopy { padding: 40px 24px 42px; }
-  .hero h1 { font-size: clamp(2.15rem, 11vw, 3rem); }
-  .heroText { margin: 20px 0 26px; }
-  .primaryAction { min-height: 48px; }
-  .heroImage { min-height: 220px; }
-  .categorySection { padding: 46px 0 54px; }
+  .cartButton { min-height: 44px; grid-column: 2; grid-row: 1; justify-self: end; }
+  .hero {
+    min-height: 310px;
+    grid-template-columns: minmax(0, 1.25fr) minmax(140px, .75fr);
+    margin-top: 14px;
+  }
+  .heroCopy { padding: 32px 20px; }
+  .hero h1 { font-size: clamp(1.8rem, 6vw, 2.2rem); line-height: 1.03; }
+  .heroText { margin: 18px 0 22px; font-size: .9rem; line-height: 1.5; }
+  .primaryAction { min-height: 46px; padding: 0 16px; }
+  .heroImage { min-height: 0; }
+  .categorySection { padding: 40px 0 48px; overflow: hidden; }
   .sectionHeading { align-items: center; }
   .sectionHeading a { white-space: nowrap; }
-  .categoryGrid, .productGrid { grid-template-columns: 1fr; }
-  .categoryCard { min-height: 150px; }
-  .productsSection { padding: 52px 0 62px; }
+  .categoryGrid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .categoryGrid::-webkit-scrollbar { display: none; }
+  .categoryCard {
+    min-height: 138px;
+    flex: 0 0 min(78vw, 330px);
+    scroll-snap-align: start;
+  }
+  .productGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .productsSection { padding: 44px 0 54px; }
+  .productsHeader { margin-bottom: 18px; }
   .footerInner { min-height: 180px; flex-direction: column; align-items: flex-start; justify-content: center; }
 }
 
-@media (max-width:390px) {
+@media (max-width:420px) {
   .shell { width: min(100% - 22px, 1180px); }
   .brand { font-size: 1.1rem; }
   .brandMark { width: 28px; height: 28px; }
+  .headerMain { gap: 10px 14px; }
+  .navigation { gap: 20px; }
+  .hero { min-height: 0; grid-template-columns: 1fr; }
   .heroCopy { padding: 34px 20px 38px; }
+  .heroImage { display: none; }
   .sectionHeading { align-items: flex-start; flex-direction: column; gap: 8px; }
-  .categoryCard { grid-template-columns: 1fr 44%; }
+  .categoryCard { flex-basis: 84vw; grid-template-columns: 1fr 44%; }
   .footerLinks { flex-wrap: wrap; gap: 16px 22px; }
 }
 @media (prefers-reduced-motion:reduce) { .categoryCard img{transition:none} }
